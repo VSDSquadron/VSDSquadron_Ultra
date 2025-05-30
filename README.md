@@ -55,4 +55,35 @@ If everything is wired correctly, the log area should show output similar to:
 > • If “chip sync …” never completes, swap **TX/RX** lines or re-check that **WiFi_P_BOOT** is firmly tied low.  
 > • Make sure the COM port isn’t already open in another terminal session.
 
-Continue with step 7 to select the firmware binary and start flashing.
+Continue with step 4 to select the firmware binary and start flashing.
+
+---
+
+### 4.  Load the firmware in **SPIDownload** tab and flash
+
+1. Switch back to the **`SPIDownload`** tab.  
+2. In the **first line** of the file table click **`…`** and browse to the firmware image you downloaded earlier:  
+   `factory_MINI-1.bin`
+3. **Address** → `0x0` (leave the default value).  
+4. Tick the checkbox for that row so the file is enabled.  
+5. Leave **DoNotChgBin** checked (keeps the factory-image SPI flash settings).  
+6. Confirm the default SPI settings:  
+
+   | Setting  | Value |
+   |----------|-------|
+   | **SPI SPEED** | 40 MHz |
+   | **SPI MODE**  | DIO    |
+   | **BAUD**      | 115 200 bps (or lower if you see sync errors) |
+   | **COM**       | Port you selected in the previous step |
+
+7. Click **START**.  
+   The log will show “Connecting…”, then a progress bar; when finished you should see **“FINISH”** in green.
+
+![Flash Download Tool – SPIDownload](3.png)
+
+> **Hint:** If flashing stalls at “Sync…”, press RESET on the VSD32-S3 while keeping **WiFi_P_BOOT** low, then click **START** again.
+
+Your VSD32-S3 now boots the AT firmware. Open a serial terminal at **115 200 bps** on the same COM port and type `AT+GMR` to confirm the firmware version.
+
+---
+
