@@ -35,41 +35,24 @@ Unzip **flash_download_tool.zip** somewhere convenient (e.g. `C:\esp\flash_tool\
 
    ![Flash Download Tool – correct settings](1.png)
 
-
 ---
 
-## 3. Verifying the flash
+### 3. Verify the connection with **Chip Debug Tool**
 
-Open a serial terminal (e.g. *PuTTY* or *minicom*) at the same baud rate you used for flashing and type:
+After you click **OK** in step&nbsp;5, a new window titled **CHIP DEBUG TOOL V3.9.8** pops up.
 
-```text
-AT+GMR
+1. Click the **`chipInfoDump`** tab.
+2. In the **port** drop-down, choose the COM port that the **VSD32-S3** is attached to  
+   (if two ports appear, unplug the board to see which one disappears, then re-select it).
+3. Leave **baudrate** at **115200**.
+4. Press **Chip Info**.
 
+If everything is wired correctly, the log area should show output similar to:
 
+![Chip Debug Tool – chipInfoDump](2.png)
 
-# squadron_S3
+> **Troubleshooting:**  
+> • If “chip sync …” never completes, swap **TX/RX** lines or re-check that **WiFi_P_BOOT** is firmly tied low.  
+> • Make sure the COM port isn’t already open in another terminal session.
 
-Detailed steps : [Setup Guide](https://docs.espressif.com/projects/esp-at/en/latest/esp32c3/Get_Started/Downloading_guide.html)
-
-## Overview
-- download flash tool
-- download AT firmware
-- set strapping pins
-- flash over UART0 after putting in UART BOOT MODE
-- unset strapping pins
-- reboot
-- AT over UART 1 
-
-
-[Hardware reference](https://docs.espressif.com/projects/esp-at/en/latest/esp32c3/Get_Started/Hardware_connection.html)
-
-Based on above Hardware reference make the following connections
-
-![alt text](image-1.png)
-
-
-
-![alt text](image.png)
-
-## Reference
-[AT Commands](https://docs.espressif.com/projects/esp-at/en/latest/esp32c3/AT_Command_Set/index.html)
+Continue with step 7 to select the firmware binary and start flashing.
