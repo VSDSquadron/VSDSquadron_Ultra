@@ -83,6 +83,19 @@ Continue with step 4 to select the firmware binary and start flashing.
 
 > **Hint:** If flashing stalls at “Sync…”, press RESET on the VSD32-S3 while keeping **WiFi_P_BOOT** low, then click **START** again.
 
+### 5.  Monitor flashing progress
 
----
+Click **START** and the tool immediately begins writing the image to flash:
+
+* A green **Download** status panel lights up.  
+* The red bar at the very bottom fills from left-to-right, indicating progress (see screenshot below).  
+
+![Flashing in progress](4.png)
+
+> **Do not disconnect power or the USB cable until the bar reaches 100 % and the status changes to “FINISH”.**
+
+When completed you should see the below image at the bottom of FLASH DOWNLOAD TOOL:
+![Flashing in progress](5.png)
+
+
 
