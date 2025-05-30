@@ -98,4 +98,22 @@ When completed you should see the below image at the bottom of FLASH DOWNLOAD TO
 ![Flashing in progress](5.png)
 
 
+### 9. Upload a quick Soft-AP test sketch from Arduino IDE
+
+You can now unplug the FTDI232 adapter; only the USB-C cable between your PC and **VSD32-S3** is required.
+
+1. **Open Arduino IDE** (v2.x recommended).  
+2. Ensure the **ESP32 Arduino** core is installed, then select  
+   **Board → ESP32C3 Dev Module** and the **Port** that appears when the board is plugged in.  
+3. Grab the test sketch: [`vsd32s3_softap.ino`](https://github.com/VSDSquadron/VSDSquadron_Ultra/blob/main/code/wifi/vsd32s3_softap.ino).  
+4. Open the sketch and click **Upload**.  
+5. When the upload completes, open **Serial Monitor** at **115 200 baud**.
+
+#### What the sketch does
+
+```cpp
+// vsd32s3_softap.ino
+// Bring up ESP32-C3 as a Wi-Fi Access Point
+// SSID = "VSD32-S3"
+// PASS = "vsd12345"
 
