@@ -83,7 +83,6 @@ Continue with step 4 to select the firmware binary and start flashing.
 
 > **Hint:** If flashing stalls at “Sync…”, press RESET on the VSD32-S3 while keeping **WiFi_P_BOOT** low, then click **START** again.
 
-Your VSD32-S3 now boots the AT firmware. Open a serial terminal at **115 200 bps** on the same COM port and type `AT+GMR` to confirm the firmware version.
 
 ---
 
