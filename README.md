@@ -107,7 +107,7 @@ You can now unplug the FTDI232 adapter; only the USB-C cable between your PC and
    **Board → ESP32C3 Dev Module** and the **Port** that appears when the board is plugged in.  
 3. Grab the test sketch: [`vsd32s3_softap.ino`](https://github.com/VSDSquadron/VSDSquadron_Ultra/blob/main/code/wifi/vsd32s3_softap.ino).  
 4. Open the sketch and click **Upload**.  
-5. When the upload completes, open **Serial Monitor** at **115 200 baud**.
+5. When the upload completes, open **Serial Monitor** at **115200 baud**.
 
 #### What the sketch does
 
@@ -116,4 +116,9 @@ You can now unplug the FTDI232 adapter; only the USB-C cable between your PC and
 // Bring up ESP32-C3 as a Wi-Fi Access Point
 // SSID = "VSD32-S3"
 // PASS = "vsd12345"
-
+```
+The sketch sends AT commands to the ESP32-C3 module to:
+1. reset the chip
+2. switch to Soft-AP mode on channel 1 (WPA2-PSK)
+3. set SSID VSD32-S3 and password vsd12345
+4. print the AP’s IP and MAC addresses
