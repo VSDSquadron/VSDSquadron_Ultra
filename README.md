@@ -38,7 +38,7 @@ Unzip **flash_download_tool.zip** somewhere convenient (e.g. `C:\esp\flash_tool\
 9. Power-cycle or reset the board; the AT command prompt should appear on the UART0 console.
 
 ### Screenshot
-![Flash Download Tool – correct settings](docs/flash-tool-settings.png)
+![Flash Download Tool – correct settings](1.png)
 
 ---
 
