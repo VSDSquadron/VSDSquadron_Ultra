@@ -95,7 +95,7 @@ Click **START** and the tool immediately begins writing the image to flash:
 > **Do not disconnect power or the USB cable until the bar reaches 100 % and the status changes to “FINISH”.**
 
 When completed you should see the below image at the bottom of FLASH DOWNLOAD TOOL:
-![Flashing in progress](5.png)
+![Flashing Complete](5.png)
 
 
 ### 9. Upload a quick Soft-AP test sketch from Arduino IDE
@@ -122,3 +122,8 @@ The sketch sends AT commands to the ESP32-C3 module to:
 2. switch to Soft-AP mode on channel 1 (WPA2-PSK)
 3. set SSID VSD32-S3 and password vsd12345
 4. print the AP’s IP and MAC addresses
+
+Successful output in the Serial Monitor looks like:
+![Soft-AP Ready](6.png)
+
+# Your VSD32-S3 is now broadcasting a Wi-Fi network that you can join from any phone or laptop.
