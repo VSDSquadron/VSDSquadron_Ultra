@@ -30,15 +30,15 @@ Unzip **flash_download_tool.zip** somewhere convenient (e.g. `C:\esp\flash_tool\
 1. **Open** `flash_download_tool_x.x.x.exe`.  
 2. In the first dialog choose the **ChipType** → `ESP32-C3`.  
 3. Choose **WorkMode** → `Develop`.  
-4. Choose **LoadMode** → `UART`.  
-5. Click **OK** to enter the main window.  
-6. Browse for `factory_MINI-1.bin` and set the address to `0x0`.  
-7. Select the correct COM port for your FTDI232 dongle and set baud (115 200 – 921 600 bps works; start with 460 800 for reliability).  
-8. Press **Start** – flashing should complete in a few seconds.  
-9. Power-cycle or reset the board; the AT command prompt should appear on the UART0 console.
+4. Choose **LoadMode** → `UART`. (see below image)
+   ![Flash Download Tool – correct settings](1.png)
 
-### Screenshot
-![Flash Download Tool – correct settings](1.png)
+6. Click **OK** to enter the main window.  
+7. Browse for `factory_MINI-1.bin` and set the address to `0x0`.  
+8. Select the correct COM port for your FTDI232 dongle and set baud (115 200 – 921 600 bps works; start with 460 800 for reliability).  
+9. Press **Start** – flashing should complete in a few seconds.  
+10. Power-cycle or reset the board; the AT command prompt should appear on the UART0 console.
+
 
 ---
 
