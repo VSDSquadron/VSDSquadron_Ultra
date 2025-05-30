@@ -1,11 +1,54 @@
-# Pin Connections between VSD32-S3 and FTDI232 for WiFi Setup
+# VSD32-S3 — Flashing AT Firmware over UART
 
-| VSD32-S3 signal / pin | Connect to        | Notes                                                         |
-|-----------------------|-------------------|---------------------------------------------------------------|
-| **WiFi_P_Tx**         | FTDI232 **Rx**    | UART transmit from VSD32-S3 to FTDI232 receive               |
-| **WiFi_P_Rx**         | FTDI232 **Tx**    | UART receive on VSD32-S3 from FTDI232 transmit               |
-| **GND**               | FTDI232 **GND**   | Common ground reference                                      |
-| **WiFi_P_BOOT**       | VSD32-S3 **GND**  | Pull BOOT low to place ESP32-C3 module in normal run mode    |
+This short guide shows you how to download the **AT firmware** image and flash it onto a **VSD32-S3** board (ESP32-C3 Wi-Fi/BLE module) using Espressif’s *Flash Download Tool*.
+
+> **Before you start**  
+> Make sure the hardware is wired exactly as shown in the table below.
+
+| VSD32-S3 signal / pin | Connect to           | Notes                                                  |
+|-----------------------|----------------------|--------------------------------------------------------|
+| **WiFi_P_Tx**         | FTDI232 **Rx**       | UART TX from VSD32-S3 → FTDI RX                        |
+| **WiFi_P_Rx**         | FTDI232 **Tx**       | UART RX on VSD32-S3 ← FTDI TX                          |
+| **GND**               | FTDI232 **GND**      | Common ground reference                                |
+| **WiFi_P_BOOT**       | VSD32-S3 **GND**     | Keep low to boot ESP32-C3 into normal flash-run mode   |
+
+---
+
+## 1. Download the required files
+
+| File | Purpose | Link |
+|------|---------|------|
+| **factory_MINI-1.bin** | AT firmware image | <https://github.com/VSDSquadron/VSDSquadron_Ultra/blob/main/factory_MINI-1.bin> |
+| **flash_download_tool.zip** | Espressif Flash Download Tool (Windows) | <https://github.com/VSDSquadron/VSDSquadron_Ultra/blob/main/flash_download_tool.zip> |
+
+Unzip **flash_download_tool.zip** somewhere convenient (e.g. `C:\esp\flash_tool\`).
+
+---
+
+## 2. Flash the firmware
+
+1. **Open** `flash_download_tool_x.x.x.exe`.  
+2. In the first dialog choose the **ChipType** → `ESP32-C3`.  
+3. Choose **WorkMode** → `Develop`.  
+4. Choose **LoadMode** → `UART`.  
+5. Click **OK** to enter the main window.  
+6. Browse for `factory_MINI-1.bin` and set the address to `0x0`.  
+7. Select the correct COM port for your FTDI232 dongle and set baud (115 200 – 921 600 bps works; start with 460 800 for reliability).  
+8. Press **Start** – flashing should complete in a few seconds.  
+9. Power-cycle or reset the board; the AT command prompt should appear on the UART0 console.
+
+### Screenshot
+![Flash Download Tool – correct settings](docs/flash-tool-settings.png)
+
+---
+
+## 3. Verifying the flash
+
+Open a serial terminal (e.g. *PuTTY* or *minicom*) at the same baud rate you used for flashing and type:
+
+```text
+AT+GMR
+
 
 
 # squadron_S3
